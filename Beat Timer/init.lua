@@ -113,7 +113,11 @@ function getTimeUntilNextHundredthBeat()
   local seconds = math.floor(secondsUntilNextHundredth % 60)
   
   -- Return the formatted string
-  return string.format("%02d:%02d:%02d", hours, minutes, seconds)
+  if hours == 0 then
+    return string.format("%02d:%02d", minutes, seconds)
+  end
+ 
+  return string.format("%2d:%02d:%02d", hours, minutes, seconds)
 end
 
 local function getFormattedBeatTime()
